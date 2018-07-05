@@ -13,6 +13,7 @@ public void init(){
     ResultsPageTests results = home.searchFlightAction();
     results.checkButton();
     results.checkElements();
+    results.checkFlightDurationElement();
 }
 
 }

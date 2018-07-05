@@ -25,6 +25,20 @@ public class ResultsPageTests extends ResultsPage {
     }
 
 
+    public void checkFlightDurationElement() {
 
+        List<WebElement> flightDurationElement = getDriver().findElements(By.cssSelector("#flightModuleList li:nth-child(N) span[data-test-id='duration']"));
 
+        for (int i = 0; i < flightDurationElement.size(); i++) {
+            WebElement item = flightDurationElement.get(i);
+            System.out.println(item.getText());
+
+        }
+    }
 }
+
+
+
+
+
+
