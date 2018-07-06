@@ -40,6 +40,24 @@ public class ResultsPageTests extends ResultsPage {
 
         }
     }
+
+    public void checkFlightDetails() {
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#flightModuleList li:nth-child(N) span[class='show-flight-details']")));
+
+
+        List<WebElement> flightDurationElement = getDriver().findElements(By.cssSelector("#flightModuleList li:nth-child(N) span[class='show-flight-details']"));
+
+        for (int i = 0; i < flightDurationElement.size(); i++) {
+
+            WebElement item = flightDurationElement.get(i);
+
+            System.out.println(item.getText());
+
+        }
+    }
+
+
+
 }
 
 
