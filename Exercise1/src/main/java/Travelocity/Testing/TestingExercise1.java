@@ -14,7 +14,8 @@ public void init() throws InterruptedException {
     ResultsPageTests results = home.searchFlightAction();
     results.checkButton();
     results.checkFlightDurationElement();
-    results.checkDurationSort();
+    results.selectFirstResult();
+
 
     for (int i=0;i<4;i++)
 
@@ -45,7 +46,7 @@ public void init() throws InterruptedException {
             e.toString();
             System.out.println("Trying to recover from Stale element...:  ");
         }
-
+    results.checkDurationSort();
 
 }
 
