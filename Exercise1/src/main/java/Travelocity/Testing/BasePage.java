@@ -10,7 +10,7 @@ public class BasePage {
 
     public BasePage(WebDriver pdriver) {
 
-        PageFactory.initElements(pdriver,this);
+        PageFactory.initElements(pdriver, this);
         wait = new WebDriverWait(pdriver, 10);
         driver = pdriver;
     }
@@ -27,8 +27,8 @@ public class BasePage {
 
     }
 
-    public void dispose(){
-        if(driver!=null){
+    public void dispose() {
+        if (driver != null) {
             driver.quit();
         }
 

@@ -1,7 +1,6 @@
 package Travelocity.TestsLayer;
 
 import Travelocity.PagesLayer.ResultsPage;
-import Travelocity.PagesLayer.ReturnPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,7 +59,7 @@ public class ResultsPageTests extends ResultsPage {
     }
 
     public void checkDurationSort() {
-   //GENERATING FLIGHT DURATION ARRAYLIST
+        //GENERATING FLIGHT DURATION ARRAYLIST
         getWait().until(ExpectedConditions.elementToBeClickable(getDriver().findElement(By.name("sort"))));
         Select orderBy;
         orderBy = new Select(getDriver().findElement(By.name("sort")));
@@ -75,7 +74,7 @@ public class ResultsPageTests extends ResultsPage {
             WebElement item = flightDurationElement.get(i);
             durationList.add(item.getText().trim());
         }
-    //GIVING FORMAT TO ARRAYLIST
+        //GIVING FORMAT TO ARRAYLIST
         for (int i = 0; i < durationList.size(); i++) {
             char c = durationList.get(i).charAt(4);
 
@@ -85,16 +84,16 @@ public class ResultsPageTests extends ResultsPage {
             }
 
         }
-    //GENERATING FORMATTED ARRAYLIST
+        //GENERATING FORMATTED ARRAYLIST
         for (int i = 0; i < durationList.size(); i++) {
             modList.add(durationList.get(i).replaceAll("\\s+", ""));
         }
         System.out.println(modList);
         boolean isSorted = true;
-    //CHECKING IF ELEMENTS ARE ORDERED
+        //CHECKING IF ELEMENTS ARE ORDERED
         for (int i = 1; i < modList.size(); i++) {
-            System.out.println("Comparing "+modList.get(i-1)+" and "+modList.get(i));
-            if (modList.get(i - 1).compareTo(modList.get(i)) > 0 && modList.get(i).length()<6) {
+            System.out.println("Comparing " + modList.get(i - 1) + " and " + modList.get(i));
+            if (modList.get(i - 1).compareTo(modList.get(i)) > 0 && modList.get(i).length() < 6) {
 
                 isSorted = false;
             }
@@ -104,7 +103,7 @@ public class ResultsPageTests extends ResultsPage {
     }
 
     //SELECT FIRST RESULT AFTER SORTING
-    public ReturnPageTests ClickFirstResult(){
+    public ReturnPageTests ClickFirstResult() {
         WebElement selectButton = getDriver().findElement(By.cssSelector("#flightModuleList li:nth-child(1) button"));
         getWait().until(ExpectedConditions.elementToBeClickable(selectButton));
         selectButton.click();

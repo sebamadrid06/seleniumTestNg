@@ -11,19 +11,20 @@ import org.openqa.selenium.support.ui.Select;
 public class ResultsPage extends BasePage {
 
 
+    @FindBy(name = "sort")
+    public WebElement sortElement;
+
     public ResultsPage(WebDriver pdriver) {
 
         super(pdriver);
 
     }
-    @FindBy(name="sort")
-    public WebElement sortElement;
 
     public WebElement getSortElement() {
         return sortElement;
     }
 
-    public void checkElements(){
+    public void checkElements() {
 
         Select orderBy;
         orderBy = new Select(getDriver().findElement(By.name("sort")));
@@ -45,7 +46,6 @@ public class ResultsPage extends BasePage {
 
 
     }
-
 
 
 }

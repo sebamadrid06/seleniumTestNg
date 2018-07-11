@@ -11,17 +11,17 @@ public class HomePageTests extends HomePage {
         super(pdriver);
     }
 
-    public ResultsPageTests searchFlightAction(){
+    public ResultsPageTests searchFlightAction() {
 
 //        getWait().until(ExpectedConditions.elementToBeClickable(flightsButton));
         getFlightsButton().click();
         getRoundtripButton().click();
         getFlyingFrom().click();
-        getFlyingFrom().sendKeys("LAS");
+        getFlyingFrom().sendKeys("Las Vegas");
         getWait().until(ExpectedConditions.elementToBeClickable(getCityResults()));
         getSelectOrigin().click();
         getFlyingTo().click();
-        getFlyingTo().sendKeys("LAX");
+        getFlyingTo().sendKeys("Los Angeles");
         getWait().until(ExpectedConditions.elementToBeClickable(getCityResults()));
         getSelectDestiny().click();
         getDepartingDate().click();
