@@ -12,6 +12,7 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver pdriver) {
         super(pdriver);
         pdriver.manage().window().maximize();
+        getDriver().manage().deleteAllCookies();
         pdriver.get("http://travelocity.com");
 
     }

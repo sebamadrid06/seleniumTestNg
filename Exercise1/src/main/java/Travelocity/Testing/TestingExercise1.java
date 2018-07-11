@@ -2,6 +2,7 @@ package Travelocity.Testing;
 
 import Travelocity.TestsLayer.HomePageTests;
 import Travelocity.TestsLayer.ResultsPageTests;
+import Travelocity.TestsLayer.ReturnPageTests;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.testng.annotations.Test;
 
@@ -12,18 +13,33 @@ public void init() throws InterruptedException {
 
     HomePageTests home = getHomePage();
     ResultsPageTests results = home.searchFlightAction();
-    results.checkButton();
-    results.checkFlightDurationElement();
-    results.selectFirstResult();
-
-
     for (int i=0;i<4;i++)
 
         try{
             results.checkElements();
             break;
         }catch(StaleElementReferenceException e){
-        e.toString();
+            e.toString();
+            System.out.println("Trying to recover from Stale element...:  ");
+        }
+
+    for (int i=0;i<4;i++)
+
+        try{
+            results.checkButton();
+            break;
+        }catch(StaleElementReferenceException e){
+            e.toString();
+            System.out.println("Trying to recover from Stale element...:  ");
+        }
+
+    for (int i=0;i<4;i++)
+
+        try{
+            results.checkFlightDurationElement();
+            break;
+        }catch(StaleElementReferenceException e){
+            e.toString();
             System.out.println("Trying to recover from Stale element...:  ");
         }
 
@@ -37,17 +53,40 @@ public void init() throws InterruptedException {
             System.out.println("Trying to recover from Stale element...:  ");
         }
 
+    ReturnPageTests returnPageTests = results.ClickFirstResult();
+
+
     for (int i=0;i<4;i++)
 
         try{
-            results.selectFirstResult();
+            results.checkDurationSort();
             break;
         }catch(StaleElementReferenceException e){
             e.toString();
             System.out.println("Trying to recover from Stale element...:  ");
         }
-    results.checkDurationSort();
 
+    for (int i=0;i<4;i++)
+
+        try{
+            results.ClickFirstResult();
+            break;
+        }catch(StaleElementReferenceException e){
+            e.toString();
+            System.out.println("Trying to recover from Stale element...:  ");
+        }
+
+    for (int i=0;i<4;i++)
+
+    {
+        try{
+          returnPageTests.clickThirdResult();
+            break;
+        }catch(StaleElementReferenceException e){
+            e.toString();
+            System.out.println("Trying to recover from Stale element...:  ");
+        }
+    }
 }
 
 }

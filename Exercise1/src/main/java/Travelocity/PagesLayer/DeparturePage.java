@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class DeparturePage extends BasePage {
 
-    WebElement selectButton = getDriver().findElement(By.cssSelector("#flightModuleList li:nth-child(3) button"));
+//    WebElement selectButton = getDriver().findElement(By.cssSelector("#flightModuleList li:nth-child(3) button"));
 
     public DeparturePage(WebDriver pdriver) {
         super(pdriver);
