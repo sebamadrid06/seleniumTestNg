@@ -12,7 +12,7 @@ public class ReturnPageTests extends ReturnPage {
         super(pdriver);
     }
 
-    public void clickThirdResult(){
+    public ReviewTripPageTests clickThirdResult(){
 
         JavascriptExecutor js = (JavascriptExecutor)getDriver();
         js.executeScript("scroll(0,400);");
@@ -24,6 +24,20 @@ public class ReturnPageTests extends ReturnPage {
         //WebElement selectFareButton = getDriver().findElement(By.cssSelector("#flightModuleList li:nth-child(3) button[aria-label='select this basic economy fare for result 3']"));
         //selectFareButton.click();
 
+      //SWITCH TAB
+
+       String ParentWindowHandle = getDriver().getWindowHandle();
+        System.out.println(ParentWindowHandle);
+
+        for(String childTab:getDriver().getWindowHandles())
+        {
+            getDriver().switchTo().window(childTab);
+        }
+        System.out.println(getDriver().getTitle());
+
+      return new ReviewTripPageTests(getDriver());
+
+
     }
 
     public void clickSelectFare(){
@@ -34,6 +48,10 @@ public class ReturnPageTests extends ReturnPage {
         selectFareButton.click();
 
     }
+
+
+
+
 
 
 

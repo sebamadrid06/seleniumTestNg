@@ -3,6 +3,7 @@ package Travelocity.Testing;
 import Travelocity.TestsLayer.HomePageTests;
 import Travelocity.TestsLayer.ResultsPageTests;
 import Travelocity.TestsLayer.ReturnPageTests;
+import Travelocity.TestsLayer.ReviewTripPageTests;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,8 @@ public class TestingExercise1 extends TestBase {
 
         HomePageTests home = getHomePage();
         ResultsPageTests results = home.searchFlightAction();
+        ReturnPageTests returnPageTests;
+        ReviewTripPageTests reviewTripPageTests = null;
         for (int i = 0; i < 4; i++)
 
             try {
@@ -53,7 +56,7 @@ public class TestingExercise1 extends TestBase {
                 System.out.println("Trying to recover from Stale element...:  ");
             }
 
-        ReturnPageTests returnPageTests = results.ClickFirstResult();
+         returnPageTests = results.ClickFirstResult();
 
 
         for (int i = 0; i < 4; i++)
@@ -69,7 +72,7 @@ public class TestingExercise1 extends TestBase {
         for (int i = 0; i < 4; i++)
 
             try {
-                results.ClickFirstResult();
+                returnPageTests = results.ClickFirstResult();
                 break;
             } catch (StaleElementReferenceException e) {
                 e.toString();
@@ -80,7 +83,7 @@ public class TestingExercise1 extends TestBase {
 
         {
             try {
-                returnPageTests.clickThirdResult();
+                reviewTripPageTests = returnPageTests.clickThirdResult();
                 break;
             } catch (StaleElementReferenceException e) {
                 e.toString();
@@ -88,7 +91,19 @@ public class TestingExercise1 extends TestBase {
             }
         }
 
-        //returnPageTests.clickSelectFare();
+        for (int i = 0; i < 4; i++)
+
+        {
+            try {
+                reviewTripPageTests.checkReviewDetails();
+                break;
+            } catch (StaleElementReferenceException e) {
+                e.toString();
+                System.out.println("Trying to recover from Stale element...:  ");
+            }
+        }
+
+
 
 
     }
