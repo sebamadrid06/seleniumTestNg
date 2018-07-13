@@ -1,6 +1,9 @@
 package Travelocity.TestsLayer;
 
 import Travelocity.PagesLayer.ReviewTripPage;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -22,10 +25,34 @@ public class ReviewTripPageTests extends ReviewTripPage {
         Assert.assertTrue(detailsDisplayed);
         Assert.assertTrue(guaranteeDisplayed);
 
-
-
-
     }
+
+    public PaymentPageTests clickContinueButton() {
+
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("scroll(0,800);");
+    boolean alertPresent = false;
+        try{
+
+            Alert alert = getDriver().switchTo().alert();
+        alertPresent = true;
+        alert.dismiss();
+            getWait().until(ExpectedConditions.elementToBeClickable(getBookButton()));
+            getBookButton().click();
+        }catch(NoAlertPresentException e){
+            getWait().until(ExpectedConditions.elementToBeClickable(getBookButton()));
+            getBookButton().click();
+        }
+
+       // getWait().until(ExpectedConditions.elementToBeClickable(getCloseAdButton()));
+      //  getCloseAdButton().click();
+        //getWait().until(ExpectedConditions.elementToBeClickable(getBookButton()));
+     // getBookButton().click();
+
+return new PaymentPageTests(getDriver());
+    }
+
+
 
 
 }

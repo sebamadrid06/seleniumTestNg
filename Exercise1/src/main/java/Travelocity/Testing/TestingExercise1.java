@@ -1,9 +1,7 @@
 package Travelocity.Testing;
 
-import Travelocity.TestsLayer.HomePageTests;
-import Travelocity.TestsLayer.ResultsPageTests;
-import Travelocity.TestsLayer.ReturnPageTests;
-import Travelocity.TestsLayer.ReviewTripPageTests;
+import Travelocity.PagesLayer.PaymentPage;
+import Travelocity.TestsLayer.*;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.testng.annotations.Test;
 
@@ -16,6 +14,7 @@ public class TestingExercise1 extends TestBase {
         ResultsPageTests results = home.searchFlightAction();
         ReturnPageTests returnPageTests;
         ReviewTripPageTests reviewTripPageTests = null;
+        PaymentPageTests paymentPageTests = null;
         for (int i = 0; i < 4; i++)
 
             try {
@@ -103,9 +102,7 @@ public class TestingExercise1 extends TestBase {
             }
         }
 
-
-
-
+        reviewTripPageTests.clickContinueButton();
     }
 
 }

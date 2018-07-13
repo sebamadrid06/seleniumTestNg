@@ -18,7 +18,16 @@ public class ReviewTripPage extends BasePage {
     private WebElement tripDetails;
     @FindBy(css = "div[class='priceGuarantee']")
     private WebElement priceGuarantee;
+    @FindBy(id = "bookButton")
+    private WebElement bookButton;
+    @FindBy(css = "span[id='yie-close-button-53738f66-31fd-581e-a901-e949335f5845']")
+    private WebElement closeAdButton;
 
+    @FindBy(css = "span[class='icon icon-close']")
+    private WebElement closeButton;
+    public WebElement getCloseButton() {
+        return closeButton;
+    }
 
 
     public WebElement getTotalPrice() {
@@ -32,5 +41,13 @@ public class ReviewTripPage extends BasePage {
 
     public WebElement getPriceGuarantee() {
         return priceGuarantee;
+    }
+
+    public WebElement getBookButton() {
+        return bookButton;
+    }
+
+    public WebElement getCloseAdButton() {
+        return closeAdButton;
     }
 }
